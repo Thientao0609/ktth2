@@ -30,9 +30,9 @@ from selenium import webdriver
  
  if is_valid_phone(phone_number):
      phone_input.send_keys(phone_number)
-     print("✅ Số điện thoại hợp lệ, tiếp tục form.")
+     print("Số điện thoại hợp lệ, tiếp tục form.")
  else:
-     print("❌ Số điện thoại không hợp lệ! Hãy nhập số đúng 10 chữ số.")
+     print("Số điện thoại không hợp lệ! Hãy nhập số đúng 10 chữ số.")
      driver.quit()  # Thoát nếu số điện thoại không hợp lệ
  
  # Nhập các trường còn lại

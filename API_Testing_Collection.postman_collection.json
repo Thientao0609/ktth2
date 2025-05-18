@@ -1,0 +1,118 @@
+{
+    "info": {
+        "name": "API Testing Collection",
+        "_postman_id": "12345678-1234-1234-1234-1234567890ab",
+        "description": "Collection kiểm thử API: Login và Get Users",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login API",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"123456\"\n}"
+                },
+                "url": {
+                    "raw": "https://example.com/api/login",
+                    "protocol": "https",
+                    "host": [
+                        "example",
+                        "com"
+                    ],
+                    "path": [
+                        "api",
+                        "login"
+                    ]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is less than 1000ms\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                            "});",
+                            "",
+                            "pm.test(\"Content-Type is application/json\", function () {",
+                            "    pm.response.to.have.header(\"Content-Type\", /application\\/json/);",
+                            "});",
+                            "",
+                            "pm.test(\"Body contains token\", function () {",
+                            "    const jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property(\"token\");",
+                            "    pm.expect(jsonData.token).to.be.a(\"string\");",
+                            "});",
+                            "",
+                            "if (pm.response.code === 200) {",
+                            "    const jsonData = pm.response.json();",
+                            "    pm.environment.set(\"authToken\", jsonData.token);",
+                            "}"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Get Users API",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{authToken}}"
+                    }
+                ],
+                "url": {
+                    "raw": "https://example.com/api/users",
+                    "protocol": "https",
+                    "host": [
+                        "example",
+                        "com"
+                    ],
+                    "path": [
+                        "api",
+                        "users"
+                    ]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test(\"Status code is 200\", () => {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response is array of users\", () => {",
+                            "    const users = pm.response.json();",
+                            "    pm.expect(users).to.be.an(\"array\");",
+                            "    users.forEach(user => {",
+                            "        pm.expect(user).to.have.property(\"id\");",
+                            "        pm.expect(user).to.have.property(\"email\");",
+                            "    });",
+                            "});"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "api-mock-project",
+  "version": "1.0.0",
+  "description": "Mock API project using Express with test cases in Mocha + Chai + Axios",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "axios": "^1.9.0",
+    "chai": "^5.2.0",
+    "mocha": "^11.3.0"
+  }
+}
