@@ -34,13 +34,13 @@ class ST23ATestCaseAuto(unittest.TestCase):
         btnAdd.click()
         #Step2 : Enter firstname = 'Duy'
         txtFirstName = self.driver.find_element(By.XPATH,"//input[@id='firstName']")
-        txtFirstName.send_keys("Duy")
+        txtFirstName.send_keys("thien")
         #Step3 : Enter lastname = 'Le'
         txtLastName = self.driver.find_element(By.XPATH, "//input[@id='lastName']")
-        txtLastName.send_keys("Le")
+        txtLastName.send_keys("tao")
         #Step4 : Enter Email = 'leduy@donga.edu.vn'
         txtEmail = self.driver.find_element(By.ID, "userEmail")
-        txtEmail.send_keys("leduy@donga.edu.vn")
+        txtEmail.send_keys("thien@donga.edu.vn")
         #step5: Enter Age = '18'
         txtAge = self.driver.find_element(By.CSS_SELECTOR, "#age")
         txtAge.send_keys("18")

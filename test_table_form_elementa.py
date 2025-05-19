@@ -57,7 +57,7 @@ class WebTablePage(unittest.TestCase):
         submitBtn.click()
         #Step 9 Verify the data is added to the table
         table = self.driver.find_element(By.XPATH,"//div[@class='rt-table']")
-        assert "IT23M" in table.text, "Thêm dữ liệu thất bại!"
+        assert "ST23A" in table.text, "Thêm dữ liệu thất bại!"
 
     def tearDown(self):
         self.driver.quit()
