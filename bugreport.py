@@ -64,7 +64,7 @@ from selenium import webdriver
  # Kiểm tra xác nhận
  modal = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "modal-content")))
  assert "Thanks for submitting the form" in modal.text
- print("✅ Form đã được submit thành công!")
+ print(" Form đã được submit thành công!")
  
  # Đợi 3 giây rồi đóng trình duyệt
  time.sleep(3)

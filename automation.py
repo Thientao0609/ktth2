@@ -54,7 +54,7 @@ class ST23ATestCaseAuto(unittest.TestCase):
         self.driver.find_element(By.ID,"submit").click()
         #Step 9 : Check data appear on table
         table = self.driver.find_element(By.XPATH, "//div[@class='rt-table']")
-        assert "leduy@donga.edu.vn" in table.text, "Thêm dữ liệu thất bại!"
+        assert "thien@donga.edu.vn" in table.text, "Thêm dữ liệu thất bại!"
         return True
 
 
