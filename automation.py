@@ -32,13 +32,13 @@ class ST23ATestCaseAuto(unittest.TestCase):
         #Step1 : Tap on Add button
         btnAdd = self.driver.find_element(By.XPATH, "//button[@id=\"addNewRecordButton\"]")
         btnAdd.click()
-        #Step2 : Enter firstname = 'Duy'
+        #Step2 : Enter firstname = 'thien'
         txtFirstName = self.driver.find_element(By.XPATH,"//input[@id='firstName']")
         txtFirstName.send_keys("thien")
-        #Step3 : Enter lastname = 'Le'
+        #Step3 : Enter lastname = 'tao'
         txtLastName = self.driver.find_element(By.XPATH, "//input[@id='lastName']")
         txtLastName.send_keys("tao")
-        #Step4 : Enter Email = 'leduy@donga.edu.vn'
+        #Step4 : Enter Email = 'thien@donga.edu.vn'
         txtEmail = self.driver.find_element(By.ID, "userEmail")
         txtEmail.send_keys("thien@donga.edu.vn")
         #step5: Enter Age = '18'
